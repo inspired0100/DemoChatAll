@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "118341350727",
+    "firebase_url": "https://fir-android-first-one.firebaseio.com",
+    "project_id": "fir-android-first-one",
+    "storage_bucket": "fir-android-first-one.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118341350727:android:40db802558023a27",
+        "android_client_info": {
+          "package_name": "com.inspired0100.flashchatnewfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118341350727-h8e6lkt80tqh83ihuu78q7vkqo1u5c32.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "118341350727-h8e6lkt80tqh83ihuu78q7vkqo1u5c32.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfYTK1yly8oDYmrE8lOemRzHaeOg9efVA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
