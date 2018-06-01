@@ -2,6 +2,7 @@ package com.inspired0100.flashchatnewfirebase;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
@@ -20,6 +21,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 
 public class RegisterActivity extends AppCompatActivity {
@@ -161,9 +164,33 @@ public class RegisterActivity extends AppCompatActivity {
 
     //  display name to Shared Preferences
     private void saveDisplayName() {
+        // to save the display name locally
+        //String displayName = mUsernameView.getText().toString();
+        //SharedPreferences prefs = getSharedPreferences(CHAT_PREFS, 0);
+        //prefs.edit().putString(DISPLAY_NAME_KEY, displayName).apply();
+
+        //saving the user name in firebase
+
+        FirebaseUser user = mAuth.getCurrentUser();
         String displayName = mUsernameView.getText().toString();
-        SharedPreferences prefs = getSharedPreferences(CHAT_PREFS, 0);
-        prefs.edit().putString(DISPLAY_NAME_KEY, displayName).apply();
+
+        if (user !=null) {
+            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                    .setDisplayName(displayName)
+                    .build();
+
+            user.updateProfile(profileUpdates)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Log.d("FlashChat", "User name updated.");
+                            }
+                        }
+                    });
+
+        }
+
     }
 
 
